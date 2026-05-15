@@ -38,3 +38,9 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "allowed_cidr_blocks" {
+  description = "List of CIDR blocks allowed to access the EKS cluster endpoint."
+  type        = list(string)
+  default     = []
+}
