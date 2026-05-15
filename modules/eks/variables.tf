@@ -44,3 +44,8 @@ variable "allowed_cidr_blocks" {
   type        = list(string)
   default     = []
 }
+
+variable "bastion_access_role_arn" {
+  description = "Bastion IAM role ARN"
+  type        = string
+}
