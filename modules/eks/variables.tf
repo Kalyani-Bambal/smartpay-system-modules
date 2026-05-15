@@ -45,10 +45,10 @@ variable "allowed_cidr_blocks" {
   default     = []
 }
 
-variable "bastion_access_role_arn" {
-  description = "Bastion IAM role ARN"
-  type        = string
-}
+# variable "bastion_access_role_arn" {
+#   description = "Bastion IAM role ARN"
+#   type        = string
+# }
 
 # variable "cluster_role_arn" {
 #     description = "EKS Cluster IAM role ARN"
