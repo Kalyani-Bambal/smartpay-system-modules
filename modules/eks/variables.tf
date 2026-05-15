@@ -50,7 +50,7 @@ variable "bastion_access_role_arn" {
   type        = string
 }
 
-variable "cluster_role_arn" {
-    description = "EKS Cluster IAM role ARN"
-    type        = string
-}
+# variable "cluster_role_arn" {
+#     description = "EKS Cluster IAM role ARN"
+#     type        = string
+# }
