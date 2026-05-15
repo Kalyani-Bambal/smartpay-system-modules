@@ -91,3 +91,15 @@ resource "aws_eks_node_group" "this" {
 
   tags = var.tags
 }
+
+resource "aws_security_group_rule" "allow_private_endpoint_access" {
+  count = length(var.allowed_cidr_blocks) > 0 ? 1 : 0
+
+  type              = "ingress"
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  security_group_id = aws_eks_cluster.this.vpc_config[0].cluster_security_group_id
+  cidr_blocks      = var.allowed_cidr_blocks
+  description = "Allow access to EKS cluster private endpoint from bastion/ vpc"
+}
