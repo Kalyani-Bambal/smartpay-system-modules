@@ -31,6 +31,10 @@ variable "password" {
   sensitive = true
 }
 
+variable "db_port" {
+  type = number
+}
+
 variable "subnet_ids" {
   type = list(string)
 }
