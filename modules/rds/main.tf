@@ -1,6 +1,6 @@
 resource "aws_db_subnet_group" "this" {
 
-  name = "${var.db_identifier}-subnet-group"
+  name       = "${var.db_identifier}-subnet-group"
 
   subnet_ids = var.subnet_ids
 
@@ -17,6 +17,7 @@ resource "aws_security_group" "rds_sg" {
 
   vpc_id = var.vpc_id
 
+  # Existing CIDR-based access
   ingress {
 
     from_port = var.db_port
@@ -26,6 +27,20 @@ resource "aws_security_group" "rds_sg" {
     protocol = "tcp"
 
     cidr_blocks = var.allowed_cidr_blocks
+  }
+
+  # Bastion Host Access
+  ingress {
+
+    description = "MySQL from Bastion"
+
+    from_port = 3306
+
+    to_port = 3306
+
+    protocol = "tcp"
+
+    security_groups = var.allowed_security_groups
   }
 
   egress {
@@ -82,4 +97,3 @@ resource "aws_db_instance" "this" {
     Name = var.db_identifier
   }
 }
-
