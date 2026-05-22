@@ -51,3 +51,8 @@ variable "multi_az" {
   type    = bool
   default = false
 }
+
+variable "allowed_security_groups" {
+  type = list(string)
+  default = []
+}
