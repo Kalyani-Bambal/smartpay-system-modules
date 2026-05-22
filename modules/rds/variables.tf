@@ -44,7 +44,8 @@ variable "vpc_id" {
 }
 
 variable "allowed_cidr_blocks" {
-  type = list(string)
+  type    = list(string)
+  default = []
 }
 
 variable "multi_az" {
