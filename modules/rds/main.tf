@@ -27,6 +27,9 @@ resource "aws_security_group" "rds_sg" {
     protocol = "tcp"
 
     cidr_blocks = var.allowed_cidr_blocks
+
+    security_groups = var.allowed_security_groups
+
   }
 
   # Bastion Host Access

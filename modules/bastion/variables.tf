@@ -15,3 +15,8 @@ variable "key_name" {}
 variable "allowed_ssh_cidr" {
   type = list(string)
 }
+
+variable "allowed_security_groups" {
+  type    = list(string)
+  default = []
+}
