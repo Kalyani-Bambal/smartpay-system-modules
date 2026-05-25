@@ -9,3 +9,8 @@ output "cluster_endpoint" {
 output "cluster_ca" {
     value = aws_eks_cluster.this.certificate_authority[0].data
 }
+
+output "eks_cluster_token" {
+  value = data.aws_eks_cluster_auth.eks.token
+  sensitive = true
+}

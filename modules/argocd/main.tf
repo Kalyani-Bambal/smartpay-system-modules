@@ -20,7 +20,7 @@ provider "helm" {
   }
 }
 
-resource "kubernetes_namespace" "argocd" {
+resource "kubernetes_namespace_v1" "argocd" {
   metadata {
     name = var.namespace
   }
@@ -28,7 +28,7 @@ resource "kubernetes_namespace" "argocd" {
 
 resource "helm_release" "argocd" {
   name       = "argocd"
-  namespace  = kubernetes_namespace.argocd.metadata[0].name
+  namespace  = kubernetes_namespace_v1.argocd.metadata[0].name
 
   repository = "https://argoproj.github.io/argo-helm"
 
