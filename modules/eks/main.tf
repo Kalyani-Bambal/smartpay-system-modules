@@ -103,3 +103,9 @@ resource "aws_security_group_rule" "allow_private_endpoint_access" {
   cidr_blocks      = var.allowed_cidr_blocks
   description = "Allow access to EKS cluster private endpoint from bastion/ vpc"
 }
+
+#eks auth
+
+data "aws_eks_cluster_auth" "eks" {
+  name = aws_eks_cluster.eks.name
+}
