@@ -107,5 +107,5 @@ resource "aws_security_group_rule" "allow_private_endpoint_access" {
 #eks auth
 
 data "aws_eks_cluster_auth" "eks" {
-  name = aws_eks_cluster.eks.name
+  name = aws_eks_cluster.this.name
 }
